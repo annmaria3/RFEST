@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Calendar</title>
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .fc-event {
+            cursor: pointer;
+        }
+        .virtual-event {
+            background-color: #4CAF50 !important;
+            border-color: #4CAF50 !important;
+        }
+        .physical-event {
+            background-color: #2196F3 !important;
+            border-color: #2196F3 !important;
+        }
+        #eventModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        #modalBackdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div id="calendar"></div>
+    <div id="modalBackdrop"></div>
+    <div id="eventModal">
+        <h2 id="modalTitle"></h2>
+        <p><strong>Date:</strong> <span id="modalDate"></span></p>
+        <p><strong>Time:</strong> <span id="modalTime"></span></p>
+        <p><strong>Venue:</strong> <span id="modalVenue"></span></p>
+        <p><strong>Type:</strong> <span id="modalType"></span></p>
+        <p><strong>Fee:</strong> <span id="modalFee"></span></p>
+        <p><strong>Participants:</strong> <span id="modalParticipants"></span></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: 'fetch_events.php',
+                eventClassNames: function(arg) {
+                    return arg.event.extendedProps.is_virtual ? 'virtual-event' : 'physical-event';
+                },
+                eventClick: function(info) {
+                    showEventDetails(info.event);
+                }
+            });
+            calendar.render();
+        });
+
+        function showEventDetails(event) {
+            document.getElementById('modalTitle').textContent = event.title;
+            document.getElementById('modalDate').textContent = event.start.toLocaleDateString();
+            document.getElementById('modalTime').textContent = 
+                event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' - ' + 
+                (event.end ? event.end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'TBD');
+            document.getElementById('modalVenue').textContent = event.extendedProps.venue;
+            document.getElementById('modalType').textContent = event.extendedProps.event_type;
+            document.getElementById('modalFee').textContent = event.extendedProps.registration_fee;
+            document.getElementById('modalParticipants').textContent = 
+                event.extendedProps.current_participants + '/' + event.extendedProps.max_participants;
+            
+            document.getElementById('modalBackdrop').style.display = 'block';
+            document.getElementById('eventModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modalBackdrop').style.display = 'none';
+            document.getElementById('eventModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

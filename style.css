@@ -1,0 +1,160 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header (Navigation Bar) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6a5acd;
+    color: white;
+    padding: 10px 20px;
+}
+
+.nav-left .menu-btn {
+    font-size: 20px;
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+
+#search {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.nav-right button {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #eee;
+    padding: 20px;
+}
+
+.avatar {
+    font-size: 40px;
+    text-align: center;
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Event Grid */
+.events .event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.event {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.coming-soon {
+    background-color: lightgreen;
+}
+
+/* Notice Board */
+.notice-board {
+    width: 250px;
+    padding: 20px;
+    background-color: white;
+}
+
+.notice {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.notice.yellow {
+    background-color: yellow;
+}
+
+.notice.red {
+    background-color: red;
+    color: white;
+}
+
+/* Recommended Events Carousel */
+.carousel {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-track {
+    display: flex;
+    overflow: hidden;
+    width: 200px;
+}
+
+.carousel-item {
+    min-width: 200px;
+    padding: 20px;
+    text-align: center;
+}
+
+.yellow { background-color: yellow; }
+.blue { background-color: lightblue; }
+.green { background-color: lightgreen; }
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #003566;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.pagination a.active {
+    background-color: #ffbb33;
+}
+
+.pagination a:hover {
+    background-color: #0056b3;
+}
+
+
+

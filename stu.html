@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFEST - Event Management Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    
+
+</head>
+<body>
+    
+    <div class="dashboard">
+        <!-- Left Sidebar -->
+        <aside class="sidebar user-sidebar">
+            <div class="user-profile">
+                <div class="avatar"></div>
+                <div class="user-info">
+                    <h3>NAME:</h3>
+                    <p>ACTIVITY POINTS:</p>
+                    <p>CERTIFICATES:</p>
+                </div>
+            </div>
+            <div class="archives">
+                <h3>EVENT ARCHIVES</h3>
+                <ul class="archive-list">
+                    <li>Past Event 1</li>
+                    <li>Past Event 2</li>
+                    <li>Past Event 3</li>
+                </ul>
+            </div>
+            <button class="logout-btn">LOGOUT</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <nav class="nav">
+                    <h1>RFEST</h1>
+                    <div class="nav-links">
+                        <a href="#" class="active">Home</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                    <div class="nav-controls">
+                        <input type="search" placeholder="SEARCH PORTAL" class="search-input">
+                        <button class="theme-toggle">🌙</button>
+                        <button class="help-btn">?</button>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Event Dashboard -->
+            <section class="event-dashboard">
+                <!-- <button class="create-event-btn">CREATE EVENT</button>  -->
+                
+                
+                <div class="event-grid">
+                    <div class="event-card">NDLI</div>
+                    <div class="event-card">CYBERBLITZ</div>
+                    <div class="event-card">CSI</div>
+                    <div class="event-card">IEDC</div>
+                    <div class="event-card">
+                        <h3>BHARATHAM</h3>
+                        <p>2025</p>
+                    </div>
+                    <div class="event-card coming-soon">
+                        <h3>ABHIYANTHIRIKI</h3>
+                        <p>COMING SOON!</p>
+                    </div>
+                </div>
+
+                <!-- Student House Section -->
+                <section class="student-house">
+                    <h2>Your House</h2>
+                    <div class="house-card" id="student-house">Loading...</div>
+                </section>
+
+                <!-- Recommended Events -->
+                <section class="recommended-events">
+                    <h2>FEATURED EVENTS</h2>
+                    <div class="event-carousel">
+                        <button class="carousel-btn prev">←</button>
+                        <div class="carousel-items">
+                            <div class="carousel-item" data-specs="Details about Event 1">Event 1</div>
+                            <div class="carousel-item" data-specs="Details about Event 2">Event 2</div>
+                            <div class="carousel-item" data-specs="Details about Event 3">Event 3</div>
+                            <div class="carousel-item" data-specs="Details about Event 4">Event 4</div>
+                            <div class="carousel-item" data-specs="Details about Event 5">Event 5</div>
+                            <div class="carousel-item" data-specs="Details about Event 6">Event 6</div>
+                            <div class="carousel-item" data-specs="Details about Event 7">Event 7</div>
+                            <div class="carousel-item" data-specs="Details about Event 8">Event 8</div>
+                        </div>
+                        <button class="carousel-btn next">→</button>
+                    </div>
+                    <div class="event-specs" id="event-specs">Hover over an event to see details</div>
+                </section>
+
+                <section class="image-gallery">
+                    <h2>Image Gallery</h2>
+                    <div class="gallery-container">
+                        <div class="gallery">
+                            <img src="image1.jpg" alt="Image 1">
+                            <img src="image2.jpg" alt="Image 2">
+                            <img src="image3.jpg" alt="Image 3">
+                            <img src="image4.jpg" alt="Image 4">
+                            <img src="image5.jpg" alt="Image 5">
+                            <img src="image6.jpg" alt="Image 6">
+                            <img src="image7.jpg" alt="Image 7">
+                            <img src="image8.jpg" alt="Image 8"> 
+                            <!-- Add more images as needed -->
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        <!-- Right Sidebar - Notice Board -->
+        <aside class="sidebar notice-board">
+            <h2>NOTICE BOARD</h2>
+            <div class="notices">
+                <div class="notice highlight">
+                    <h3>VOLUNTEER REGISTRATIONS</h3>
+                    <p>OPEN FOR BHARATHAM 2025!!!</p>
+                    <a href="#">CLICK HERE!!</a>
+                </div>
+                <div class="notice urgent">
+                    <h3>BLOOD DONATION DRIVE - NSS</h3>
+                    <p>PLEASE CLICK HERE FOR MORE INFO!!!</p>
+                </div>
+            </div>
+            <div class="updates">
+                <h3>UPDATES OR NOTIFICATIONS</h3>
+                <p>Timing for open mic shifted to 5:30</p>
+            </div>
+        </aside>
+    </div>
+
+    <script src="org.js"></script>
+    <script src="stu.js"></script>
+</body>
+</html>

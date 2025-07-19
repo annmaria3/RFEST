@@ -1,0 +1,10 @@
+Checking database for event_id: 7
+Query Failed: 
+Checking database for event_id: 7
+Query Failed:  | Query: 
+Checking database for event_id: 7
+Query Failed:  | Query: 
+Event ID received: 7
+Generated Query: 
+Checking database for event_id: 7
+Query Failed:  | Query: 

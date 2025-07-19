@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFEST - Event Management Dashboard</title>
+    <link rel="stylesheet" href="stup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    
+
+</head>
+<body>
+    
+    <div class="dashboard">
+        <!-- Left Sidebar -->
+        <aside class="sidebar user-sidebar">
+            <div class="user-profile">
+                <div class="avatar"></div>
+                <div class="user-info">
+                    <h3>NAME:</h3>
+                    <p>ACTIVITY POINTS:</p>
+                    <p>CERTIFICATES:</p>
+                </div>
+            </div>
+            <div class="archives">
+                <h3>EVENT ARCHIVES</h3>
+                <ul class="archive-list">
+                    <li>Past Event 1</li>
+                    <li>Past Event 2</li>
+                    <li>Past Event 3</li>
+                </ul>
+            </div>
+            <button class="logout-btn">LOGOUT</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <nav class="nav">
+                    <h1>RFEST</h1>
+                    <div class="nav-links">
+                        <a href="#" class="active">HOME</a>
+                        <a href="#">TEAM</a>
+                        <a href="#">EVENTS</a>
+                        <a href="#">GALLERY</a>
+                        <a href="#">ABOUT US</a>
+                        <a href="#">CONNECT US</a>
+                    </div>
+                    <div class="nav-controls">
+                        <input type="search" placeholder="SEARCH EVENT" class="search-input">
+                        <button class="theme-toggle">🌙</button>
+                        <button class="help-btn">?</button>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- After header and before event-dashboard section -->
+            <div class="portal-heading">
+                <h1>CSI PORTAL</h1>
+                <p class="portal-description">
+                    Computer Society of India (CSI) RSET is a student chapter dedicated to advancing technology and innovation. 
+                    Join us in workshops, coding competitions, and tech events that shape tomorrow's digital landscape.
+
+                    
+                </p>
+            </div>
+
+            <!-- Event Dashboard -->
+            <section class="event-dashboard">
+                <!-- <button class="create-event-btn">CREATE EVENT</button>  -->
+                
+                
+                <div class="event-grid">
+                    <div class="event-card">
+                        <div class="waitlist-banner">Waitlist Option</div>
+                        <img src="event1.jpeg" alt="CSI Event 1" class="event-poster">
+                        <div class="event-info">
+                            <p class="event-description">CSI Event 1: A brief description of the event.</p>
+                            <div class="event-buttons">
+                                <button class="event-details-btn">Details</button>
+                                <button class="event-register-btn">Register</button>
+                                <div class="max-participants"> 👥 50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="registration-closed-banner">🚫 Registration Closed</div>
+                        <img src="event1.jpeg" alt="CSI Event 2" class="event-poster">
+                        <div class="event-info">
+                            <p class="event-description">CSI Event 2: A brief description of the event.</p>
+                            <div class="event-buttons">
+                                <button class="event-details-btn">Details</button>
+                                <button class="event-register-btn">Register</button>
+                                <div class="max-participants"> 👥 50</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <img src="event1.jpeg" alt="CSI Event 3" class="event-poster">
+                        <div class="event-info">
+                            <p class="event-description">CSI Event 3: A brief description of the event.</p>
+                            <div class="event-buttons">
+                                <button class="event-details-btn">Details</button>
+                                <button class="event-register-btn">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <img src="event1.jpeg" alt="CSI Event 4" class="event-poster">
+                        <div class="event-info">
+                            <p class="event-description">CSI Event 4: A brief description of the event.</p>
+                            <div class="event-buttons">
+                                <button class="event-details-btn">Details</button>
+                                <button class="event-register-btn">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <!-- Recommended Events -->
+                <section class="recommended-events">
+                    <h2>FEATURED EVENTS</h2>
+                    <div class="event-carousel">
+                        <button class="carousel-btn prev">←</button>
+                        <div class="carousel-items">
+                            <div class="carousel-item" data-specs="Details about Event 1">Event 1</div>
+                            <div class="carousel-item" data-specs="Details about Event 2">Event 2</div>
+                            <div class="carousel-item" data-specs="Details about Event 3">Event 3</div>
+                            <div class="carousel-item" data-specs="Details about Event 4">Event 4</div>
+                            <div class="carousel-item" data-specs="Details about Event 5">Event 5</div>
+                            <div class="carousel-item" data-specs="Details about Event 6">Event 6</div>
+                            <div class="carousel-item" data-specs="Details about Event 7">Event 7</div>
+                            <div class="carousel-item" data-specs="Details about Event 8">Event 8</div>
+                        </div>
+                        <button class="carousel-btn next">→</button>
+                    </div>
+                    <div class="event-specs" id="event-specs">Hover over an event to see details</div>
+                </section>
+
+                <section class="image-gallery">
+                    <h2>Image Gallery</h2>
+                    <div class="gallery-container">
+                        <div class="gallery">
+                            <img src="img1.jpg" alt="Image 1">
+                            <img src="img2.jpg" alt="Image 2">
+                            <img src="img3.jpg" alt="Image 3">
+                            <img src="img4.jpg" alt="Image 4">
+                            <img src="img5.jpg" alt="Image 5">
+                            <img src="img6.jpg" alt="Image 6">
+                            <img src="img8.jpg" alt="Image 7">
+                            <img src="img9.jpg" alt="Image 8"> 
+                            <img src="img10.jpg" alt="Image 8"> 
+                            <!-- Add more images as needed -->
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        <!-- Right Sidebar - Notice Board -->
+        <aside class="sidebar notice-board">
+            <h2>NOTICE BOARD</h2>
+            <div class="notices">
+                <div class="notice highlight">
+                    <h3>VOLUNTEER REGISTRATIONS</h3>
+                    <p>OPEN FOR BHARATHAM 2025!!!</p>
+                    <a href="#">CLICK HERE!!</a>
+                </div>
+                <div class="notice urgent">
+                    <h3>BLOOD DONATION DRIVE - NSS</h3>
+                    <p>PLEASE CLICK HERE FOR MORE INFO!!!</p>
+                </div>
+            </div>
+            <div class="updates">
+                <h3>UPDATES OR NOTIFICATIONS</h3>
+                <p>Timing for open mic shifted to 5:30</p>
+            </div>
+        </aside>
+    </div>
+
+    <script src="org.js"></script>
+    <script src="stu.js"></script>
+
+    <!-- Add this before closing body tag -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Enlarged poster">
+        </div>
+    </div>
+
+    <!-- Event Details Dialog -->
+    <div id="eventDetailsModal" class="details-modal">
+        <div class="details-modal-content">
+            <span class="close-details">&times;</span>
+            <div class="event-details-header">
+                <div class="event-banner">
+                    <img src="event1.jpeg" alt="Event Banner" id="detailsBanner">
+                </div>
+                <h2 id="eventTitle">Event Title</h2>
+            </div>
+            <div class="event-details-body">
+                <div class="details-row">
+                    <i class="fas fa-calendar"></i>
+                    <span>Date: </span>
+                    <span id="eventDate">TBA</span>
+                </div>
+                <div class="details-row">
+                    <i class="fas fa-clock"></i>
+                    <span>Time: </span>
+                    <span id="eventTime">TBA</span>
+                </div>
+                <div class="details-row">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Venue: </span>
+                    <span id="eventVenue">TBA</span>
+                </div>
+                <div class="details-row">
+                    <i class="fas fa-star"></i>
+                    <span>Activity Points: </span>
+                    <span id="eventPoints">TBA</span>
+                </div>
+                <div class="details-row">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Special Guest: </span>
+                    <span id="eventGuest">TBA</span>
+                </div>
+                <div class="details-row">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Entry Fee: </span>
+                    <span id="eventPrice">TBA</span>
+                </div>
+                <div class="details-section">
+                    <h3>Eligibility Criteria:</h3>
+                    <ul id="eventEligibility">
+                        <li>TBA</li>
+                    </ul>
+                </div>
+                <div class="details-section">
+                    <h3>Event Description:</h3>
+                    <p id="eventDescription">TBA</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Make sure this is the last thing before closing body tag -->
+    <script src="stup.js"></script>
+</body>
+</html>

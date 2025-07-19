@@ -1,0 +1,5 @@
+2025-04-06 10:43:27 - Script started
+2025-04-06 10:43:27 - user_id: u2203025, event_id: 1, portal: 
+2025-04-06 10:43:27 - Event data: {"event_id":1,"max_participants":10,"current_participants":1,"registration_fee":"0.00","is_group":"no"}
+2025-04-06 10:43:27 - User already registered: user_id = u2203025, event_id = 1
+2025-04-06 10:43:27 - Ticket already exists for registration_id = 7

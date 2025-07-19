@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="nav-left">
+            <button class="menu-btn">☰</button>
+            <span class="logo">RFEST</span>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">FAQ</a>
+            <input type="text" id="search" placeholder="Search Portal">
+        </nav>
+        <div class="nav-right">
+            <button id="darkModeToggle">🌙</button>
+            <button id="calendar">📅</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar (User Profile & Archives) -->
+        <aside class="sidebar">
+            <div class="profile">
+                <div class="avatar">👤</div>
+                <p><strong>Name:</strong> Student</p>
+                <p><strong>Activity Points:</strong> 120</p>
+                <p><strong>Certificates:</strong> 5</p>
+            </div>
+            <div class="event-archives">
+                <h3>Event Archives</h3>
+                <ul>
+                    <li>📄 Previous Event 1</li>
+                    <li>📄 Previous Event 2</li>
+                    <li>📄 Previous Event 3</li>
+                </ul>
+            </div>
+            <button class="logout-btn">Logout</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Event Tiles -->
+            <section class="events">
+                <h2>Events</h2>
+                <div class="event-grid">
+                    <div class="event">CSI</div>
+                    <div class="event">NDLI</div>
+                    <div class="event">Cyberblitz</div>
+                    <div class="event">Bharatham 2025</div>
+                    <div class="event coming-soon">Abhiyanthiriki (Coming Soon)</div>
+                </div>
+            </section>
+
+            <!-- Recommended Events Carousel -->
+            <section class="recommended">
+                <h2>Recommended Events</h2>
+                <div class="carousel">
+                    <button class="prev">◀</button>
+                    <div class="carousel-track">
+                        <div class="carousel-item yellow">Event 1</div>
+                        <div class="carousel-item blue">Event 2</div>
+                        <div class="carousel-item green">Event 3</div>
+                    </div>
+                    <button class="next">▶</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Notice Board -->
+        <aside class="notice-board">
+            <h3>Notice Board</h3>
+            <p class="notice yellow">📢 Volunteer Registrations OPEN for Bharatham 2025!!! <a href="#">Click Here!</a></p>
+            <p class="notice red">🩸 Blood Donation Drive - NSS <a href="#">Click Here for More Info!</a></p>
+            <h3>Updates or Notifications</h3>
+            <p class="update">⏳ Timing for Open Mic shifted to 5:30</p>
+        </aside>
+    </div>
+</body>
+</html>

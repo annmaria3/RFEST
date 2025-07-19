@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('rfest.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 50px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: #333;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: darkgreen;
+        }
+
+        .signup-form {
+            display: none;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .signup-btn {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .signup-btn:hover {
+            background-color: darkgreen;
+        }
+
+        .dynamic-dropdown {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Sign Up</h2>
+
+        <!-- Buttons for role selection -->
+        <button class="btn" onclick="showForm('student')">Sign Up as Student</button>
+        <button class="btn" onclick="showForm('faculty')">Sign Up as Faculty</button>
+        <button class="btn" onclick="showForm('organizer')">Sign Up as Organizer</button>
+
+        <!-- Student Sign Up Form -->
+        <div id="studentForm" class="signup-form">
+            <h3>Student Sign Up</h3>
+            <form action="signup.php" method="POST" onsubmit="return validateStudentForm()">
+                <input type="hidden" name="role" value="student">
+                <div class="input-group">
+                    <label>User ID</label>
+                    <input type="text" name="uid" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirm_password" required>
+                    <div id="passwordMatchError" class="error-message"></div>
+                </div>
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label>Department</label>
+                    <select name="department" required>
+                        <option value="" disabled selected>Select Department</option>
+                        <option value="CSE">CSE</option>
+                        <option value="ME">ME</option>
+                        <option value="CE">CE</option>
+                        <option value="EC">EC</option>
+                        <option value="EEE">EEE</option>
+                        <option value="AIDS">AIDS</option>
+                        <option value="CSBS">CSBS</option>
+                        <option value="AEI">AEI</option>
+                        <option value="IT">IT</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Batch</label>
+                    <select name="batch" required>
+                        <option value="" disabled selected>Select Batch</option>
+                        <option value="2021-25">2021-25</option>
+                        <option value="2022-26">2022-26</option>
+                        <option value="2023-27">2023-27</option>
+                        <option value="2024-28">2024-28</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Phone No</label>
+                    <input type="text" name="phone" required>
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label>House</label>
+                    <select name="house" required>
+                        <option value="" disabled selected>Select House</option>
+                        <option value="Rajputs">Rajputs</option>
+                        <option value="Aryans">Aryans</option>
+                        <option value="Mughals">Mughals</option>
+                        <option value="Spartans">Spartans</option>
+                        <option value="Vikings">Vikings</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Clubs (comma-separated)</label>
+                    <input type="text" name="clubs" placeholder="Eg: IEEE, IEDC, Cyberblitz, NDLI">
+                </div>
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Faculty Sign Up Form -->
+        <div id="facultyForm" class="signup-form">
+            <h3>Faculty Sign Up</h3>
+            <form action="signup.php" method="POST" onsubmit="return validateFacultyForm()">
+                <input type="hidden" name="role" value="faculty">
+                <div class="input-group">
+                    <label>User ID</label>
+                    <input type="text" name="uid" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirm_password" required>
+                    <div id="facultyPasswordMatchError" class="error-message"></div>
+                </div>
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label>Department</label>
+                    <select name="department" required>
+                        <option value="" disabled selected>Select Department</option>
+                        <option value="CSE">CSE</option>
+                        <option value="ME">ME</option>
+                        <option value="CE">CE</option>
+                        <option value="EC">EC</option>
+                        <option value="EEE">EEE</option>
+                        <option value="AIDS">AIDS</option>
+                        <option value="CSBS">CSBS</option>
+                        <option value="AEI">AEI</option>
+                        <option value="IT">IT</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Phone No</label>
+                    <input type="text" name="phone" required>
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Organizer Sign Up Form -->
+        <div id="organizerForm" class="signup-form">
+            <h3>Organizer Sign Up</h3>
+            <form action="signup.php" method="POST" onsubmit="return validateOrganizerForm()">
+                <input type="hidden" name="role" value="organizer">
+                <div class="input-group">
+                    <label>User ID</label>
+                    <input type="text" name="uid" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirm_password" required>
+                    <div id="organizerPasswordMatchError" class="error-message"></div>
+                </div>
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label>Department</label>
+                    <select name="department" required>
+                        <option value="" disabled selected>Select Department</option>
+                        <option value="CSE">CSE</option>
+                        <option value="ME">ME</option>
+                        <option value="CE">CE</option>
+                        <option value="EC">EC</option>
+                        <option value="EEE">EEE</option>
+                        <option value="AIDS">AIDS</option>
+                        <option value="CSBS">CSBS</option>
+                        <option value="AEI">AEI</option>
+                        <option value="IT">IT</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Phone No</label>
+                    <input type="text" name="phone" required>
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label>Organization Type</label>
+                    <select name="organization_type" id="organization_type" required onchange="showOrganizationDropdown()">
+                        <option value="" disabled selected>Select Organization Type</option>
+                        <option value="house">House</option>
+                        <option value="club">Club</option>
+                        <option value="fest">Fest</option>
+                    </select>
+                </div>
+                
+                <!-- House Selection (shown when organization_type is house) -->
+                <div class="input-group dynamic-dropdown" id="houseDropdown">
+                    <label>Select House</label>
+                    <select name="house_selection" id="house_selection">
+                        <option value="" disabled selected>Select House</option>
+                        <option value="Rajputs">Rajputs</option>
+                        <option value="Mughals">Mughals</option>
+                        <option value="Vikings">Vikings</option>
+                        <option value="Spartans">Spartans</option>
+                        <option value="Aryans">Aryans</option>
+                    </select>
+                </div>
+                
+                <!-- Club Selection (shown when organization_type is club) -->
+                <div class="input-group dynamic-dropdown" id="clubDropdown">
+                    <label>Select Club</label>
+                    <select name="club_selection" id="club_selection">
+                        <option value="" disabled selected>Select Club</option>
+                        <option value="IEEE">IEEE</option>
+                        <option value="IEDC">IEDC</option>
+                        <option value="Cyberblitz">Cyberblitz</option>
+                        <option value="NDLI">NDLI</option>
+                    </select>
+                </div>
+                
+                <!-- Fest Selection (shown when organization_type is fest) -->
+                <div class="input-group dynamic-dropdown" id="festDropdown">
+                    <label>Select Fest</label>
+                    <select name="fest_selection" id="fest_selection">
+                        <option value="" disabled selected>Select Fest</option>
+                        <option value="Bharatam">Bharatam</option>
+                        <option value="Techshetra">Techshetra</option>
+                    </select>
+                </div>
+                
+                <!-- Position Selection (dynamic based on organization type) -->
+                <div class="input-group" id="positionDropdown">
+                    <label>Position</label>
+                    <select name="position" id="position" required>
+                        <option value="" disabled selected>Select Position</option>
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                    <div id="positionError" class="error-message"></div>
+                </div>
+                
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Show the selected form
+        function showForm(type) {
+            document.getElementById("studentForm").style.display = "none";
+            document.getElementById("facultyForm").style.display = "none";
+            document.getElementById("organizerForm").style.display = "none";
+            document.getElementById(type + "Form").style.display = "block";
+        }
+
+        // Organization type dropdown handler
+        function showOrganizationDropdown() {
+            const orgType = document.getElementById("organization_type").value;
+            
+            // Hide all dynamic dropdowns first
+            document.getElementById("houseDropdown").style.display = "none";
+            document.getElementById("clubDropdown").style.display = "none";
+            document.getElementById("festDropdown").style.display = "none";
+            
+            // Show the appropriate dropdown and update position options
+            if (orgType === "house") {
+                document.getElementById("houseDropdown").style.display = "block";
+                updatePositionOptions("house");
+            } else if (orgType === "club") {
+                document.getElementById("clubDropdown").style.display = "block";
+                updatePositionOptions("club");
+            } else if (orgType === "fest") {
+                document.getElementById("festDropdown").style.display = "block";
+                updatePositionOptions("fest");
+            }
+        }
+
+        // Update position options based on organization type
+        function updatePositionOptions(orgType) {
+            const positionSelect = document.getElementById("position");
+            positionSelect.innerHTML = '<option value="" disabled selected>Select Position</option>';
+            
+            if (orgType === "house") {
+                positionSelect.innerHTML += `
+                    <option value="leader_boys">Leader (Boys)</option>
+                    <option value="leader_girls">Leader (Girls)</option>
+                    <option value="co_leader_boys">Co-Leader (Boys)</option>
+                    <option value="co_leader_girls">Co-Leader (Girls)</option>
+                `;
+            } else if (orgType === "club") {
+                positionSelect.innerHTML += `
+                    <option value="head_boy">Head (Boy)</option>
+                    <option value="head_girl">Head (Girl)</option>
+                `;
+            } else if (orgType === "fest") {
+                positionSelect.innerHTML += `
+                    <option value="committee_head">Committee Head</option>
+                `;
+            }
+        }
+
+        // Password match validation for student form
+        function validateStudentForm() {
+            const password = document.forms["studentForm"]["password"].value;
+            const confirmPassword = document.forms["studentForm"]["confirm_password"].value;
+            
+            if (password !== confirmPassword) {
+                document.getElementById("passwordMatchError").textContent = "Passwords do not match!";
+                return false;
+            }
+            document.getElementById("passwordMatchError").textContent = "";
+            return true;
+        }
+
+        // Password match validation for faculty form
+        function validateFacultyForm() {
+            const password = document.forms["facultyForm"]["password"].value;
+            const confirmPassword = document.forms["facultyForm"]["confirm_password"].value;
+            
+            if (password !== confirmPassword) {
+                document.getElementById("facultyPasswordMatchError").textContent = "Passwords do not match!";
+                return false;
+            }
+            document.getElementById("facultyPasswordMatchError").textContent = "";
+            return true;
+        }
+
+        // Password match validation for organizer form
+        function validateOrganizerForm() {
+            const password = document.forms["organizerForm"]["password"].value;
+            const confirmPassword = document.forms["organizerForm"]["confirm_password"].value;
+            
+            if (password !== confirmPassword) {
+                document.getElementById("organizerPasswordMatchError").textContent = "Passwords do not match!";
+                return false;
+            }
+            document.getElementById("organizerPasswordMatchError").textContent = "";
+            
+            // Here you would typically make an AJAX call to check if the position is already taken
+            // For now, we'll just simulate it with a confirmation
+            const orgType = document.getElementById("organization_type").value;
+            const position = document.getElementById("position").value;
+            const orgName = orgType === "house" ? document.getElementById("house_selection").value :
+                           orgType === "club" ? document.getElementById("club_selection").value :
+                           document.getElementById("fest_selection").value;
+            
+            // This is where you would check with your database
+            // For demonstration, we'll just show an alert
+            const positionTaken = Math.random() > 0.7; // 30% chance to simulate position taken
+            
+            if (positionTaken) {
+                alert(`The ${position} position for ${orgName} is already taken. Please select a different position.`);
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Initialize the form by hiding all dynamic dropdowns
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("houseDropdown").style.display = "none";
+            document.getElementById("clubDropdown").style.display = "none";
+            document.getElementById("festDropdown").style.display = "none";
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In & Sign Up</title>
+    <link rel="stylesheet" href="log.css">
+</head>
+<body>
+    <div class="container" id="container">
+        <!-- Sign In Form -->
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Sign In</h1>
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Password" required />
+                <a href="#" class="forgot-password">Forgot Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="form-container sign-up-container">
+            <h1>Sign Up</h1>
+            <div class="role-selection">
+                <button class="role-btn" onclick="showForm('student')">Sign up as Student</button>
+                <button class="role-btn" onclick="showForm('organizer')">Sign up as Organizer</button>
+                <button class="role-btn" onclick="showForm('faculty')">Sign up as Faculty</button>
+            </div>
+
+            <form id="signup-form">
+                <input type="text" id="userId" placeholder="User ID" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+                
+                <select id="department">
+                    <option disabled selected>Select Department</option>
+                    <option>Computer Science</option>
+                    <option>Electronics</option>
+                    <option>Mechanical</option>
+                </select>
+
+                <select id="batch" class="dynamic-field">
+                    <option disabled selected>Select Batch</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                </select>
+
+                <input type="tel" id="phone" placeholder="Phone Number" required />
+                <input type="email" id="email" placeholder="Email" required />
+
+                <select id="house" class="dynamic-field">
+                    <option disabled selected>Select House</option>
+                    <option>Red</option>
+                    <option>Blue</option>
+                    <option>Green</option>
+                </select>
+
+                <select id="club1" class="dynamic-field">
+                    <option disabled selected>Select Club</option>
+                    <option>Sports Club</option>
+                    <option>Drama Club</option>
+                    <option>Music Club</option>
+                </select>
+
+                <select id="club2" class="dynamic-field">
+                    <option disabled selected>Select Club (Optional)</option>
+                    <option>Sports Club</option>
+                    <option>Drama Club</option>
+                    <option>Music Club</option>
+                </select>
+
+                <select id="club3" class="dynamic-field">
+                    <option disabled selected>Select Club (Optional)</option>
+                    <option>Sports Club</option>
+                    <option>Drama Club</option>
+                    <option>Music Club</option>
+                </select>
+
+                <select id="position" class="dynamic-field">
+                    <option disabled selected>Select Position</option>
+                    <option>President</option>
+                    <option>Vice President</option>
+                    <option>Secretary</option>
+                </select>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Overlay for Animation -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected, please sign in with your details</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your details to create an account</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="log.js"></script>
+</body>
+</html>
